@@ -1,0 +1,15 @@
+type Recipe = 
+ record {
+   id: nat;
+   ingredients: vec text;
+   instructions: text;
+   rating: float64;
+   title: text;
+ };
+service : {
+  addRecipe: (text, vec text, text) -> (nat);
+  getAllRecipes: () -> (vec Recipe) query;
+  getRecipe: (nat) -> (opt Recipe) query;
+  rateRecipe: (nat, float64) -> (bool);
+  searchByIngredient: (text) -> (vec Recipe) query;
+}
